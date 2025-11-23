@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>李嫣然 - AI时代教育简历</title>
+    <style>
+        /* 引入现代无衬线字体 */
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;500;700;900&display=swap');
+
+        :root {
+            --bg-color: #0a0a12;
+            --card-bg: rgba(30, 30, 40, 0.6);
+            --text-main: #ffffff;
+            --text-secondary: #a0a0b0;
+            --accent-gradient: linear-gradient(135deg, #00f2ff 0%, #bd00ff 100%);
+            --card-border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            overflow-x: hidden;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* --- 1. 渐变波浪动画背景 --- */
+        .wave-container {
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            overflow: hidden;
+            background: radial-gradient(circle at 50% 10%, #1a1a2e 0%, #000000 90%);
+        }
+
+        .wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 200%;
+            height: 100%;
+            background: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNDQwIDMyMCI+PHBhdGggZmlsbD0iIzUzMTJkNiIgZmlsbC1vcGFjaXR5PSIwLjEiIGQ9Ik0wLDE5Mkw0OCwxOTcuM0M5NiwyMDMsMTkyLDIxMywyODgsMjI5LjNDMzg0LDI0NSw0ODAsMjY3LDU3NiwyNTBMNjcyLDIzNC43Qzc2OCwyMTMsODY0LDEzOSw5NjAsMTIyLjdDMTA1NiwxMDcsMTE1MiwxNDksMTI0OCwxNjUuM0wxMzQ0LDE4MUwxMzQ0LDMyMEwxMjQ4LDMyMEMxMTUyLDMyMCwxMDU2LDMyMCw5NjAsMzIwQzg2NCwzMjAsNzY4LDMyMCw2NzIsMzIwQzU3NiwzMjAsNDgwLDMyMCwzODQsMzIwQzI4OCwzMjAsMTkyLDMyMCw5NiwzMjBMMCwzMjBaIj48L3BhdGg+PC9zdmc+');
+            background-repeat: repeat-x;
+            background-position: bottom;
+            background-size: 50% 400px;
+            opacity: 0.5;
+            animation: moveWave 20s linear infinite;
+        }
+
+        .wave:nth-child(2) {
+            bottom: 10px;
+            opacity: 0.3;
+            animation: moveWave 15s linear infinite reverse;
+            filter: hue-rotate(45deg);
+        }
+
+        @keyframes moveWave {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* --- 2. 主要容器 --- */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        /* --- 3. 头部区域 (Header) --- */
+        header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 80px;
+            gap: 40px;
+        }
+
+        .header-content {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .name-title {
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        /* 渐变字体效果 */
+        .gradient-text {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            color: transparent;
+            background-clip: text;
+            display: inline-block;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 30px;
+        }
+
+        /* 打字机区域 */
+        .typewriter-box {
+            background: rgba(0, 0, 0, 0.3);
+            border-left: 4px solid #00f2ff;
+            padding: 20px;
+            border-radius: 0 10px 10px 0;
+            margin-bottom: 30px;
+            font-family: 'Courier New', monospace;
+            min-height: 100px;
+        }
+
+        .typed-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #e0e0e0;
+        }
+
+        .cursor {
+            display: inline-block;
+            width: 8px;
+            height: 18px;
+            background-color: #00f2ff;
+            animation: blink 1s infinite;
+            vertical-align: middle;
+            margin-left: 5px;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .bio {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            max-width: 600px;
+        }
+
+        /* 头像区域 */
+        .avatar-container {
+            position: relative;
+            width: 250px;
+            height: 250px;
+            flex-shrink: 0;
+        }
+
+        .avatar-bg-glow {
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: var(--accent-gradient);
+            border-radius: 50%;
+            filter: blur(20px);
+            opacity: 0.6;
+            z-index: 0;
+            animation: pulse 3s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(0.95); opacity: 0.5; }
+            50% { transform: scale(1.05); opacity: 0.8; }
+            100% { transform: scale(0.95); opacity: 0.5; }
+        }
+
+        .avatar {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            position: relative;
+            z-index: 1;
+            border: 4px solid #1a1a2e;
+            /* 模拟AI生成的微质感 */
+            filter: contrast(1.1) saturate(1.1);
+        }
+
+        /* --- 4. 经历/展示区域 (Experience) --- */
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 40px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+            h1 { font-size: 2.5rem; }
+            header { flex-direction: column-reverse; align-items: center; text-align: center; }
+            .typewriter-box { text-align: left; }
+            .bio { margin: 0 auto; }
+        }
+
+        /* 卡片样式 */
+        .card {
+            background: var(--card-bg);
+            backdrop-filter: blur(10px);
+            border: var(--card-border);
+            border-radius: 20px;
+            padding: 40px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 242, 255, 0.15);
+            border-color: rgba(0, 242, 255, 0.3);
+        }
+
+        /* 卡片顶部的彩色条 */
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--accent-gradient);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: inline-block;
+            /* 简单的图标样式 */
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .card p {
+            color: #ccc;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        /* 不同颜色的卡片装饰 (模拟参考图的色块感，但更加科技化) */
+        .card-1 .card-icon { color: #ff4757; text-shadow: 0 0 10px rgba(255, 71, 87, 0.5); }
+        .card-2 .card-icon { color: #2ed573; text-shadow: 0 0 10px rgba(46, 213, 115, 0.5); }
+        .card-3 .card-icon { color: #3742fa; text-shadow: 0 0 10px rgba(55, 66, 250, 0.5); }
+        .card-4 .card-icon { color: #ffa502; text-shadow: 0 0 10px rgba(255, 165, 2, 0.5); }
+
+    </style>
+</head>
+<body>
+
+    <!-- 动态波浪背景 -->
+    <div class="wave-container">
+        <div class="wave"></div>
+        <div class="wave"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <div class="header-content">
+                <div class="name-title">PERSONAL PROFILE</div>
+                <h1>
+                    你好，我是<span class="gradient-text">李嫣然</span><br>
+                    <span style="font-size: 0.5em; opacity: 0.8; font-weight: 400; color: white;">AI 时代教育创新者</span>
+                </h1>
+                
+                <!-- 打字机区域 -->
+                <div class="typewriter-box">
+                    <span id="typewriter-text" class="typed-text"></span><span class="cursor"></span>
+                </div>
+
+                <p class="bio">
+                    国际贸易与电子商务英语的资深教师，深耕一线教学。原创性地开发了多种专业特色课程，贴近行业前瞻发展。深度参与校企合作项目与企业内训，在西海岸国贸电商教育行业拥有较高行业影响力。
+                    <br><br>
+                    <strong style="color:white;">持有证书：</strong>商务英语教师资格证 / 英语6级 / BEC中级 / 电子商务师
+                </p>
+            </div>
+
+            <div class="avatar-container">
+                <div class="avatar-bg-glow"></div>
+                <!-- 使用Unsplash上的亚洲女性戴眼镜的图片作为占位，模拟Nano Banana生成的风格 -->
+                <img src="https://images.unsplash.com/photo-1598550880863-4e8aa3d0edb4?q=80&w=1000&auto=format&fit=crop" alt="李嫣然" class="avatar">
+            </div>
+        </header>
+
+        <section class="experience">
+            <h2 class="section-title"><span class="gradient-text">专业领域</span> Experience</h2>
+            
+            <div class="grid-container">
+                <!-- 卡片 1 -->
+                <div class="card card-1">
+                    <div class="card-icon">🎓</div>
+                    <h3>特色课程开发</h3>
+                    <p>结合AI时代需求，重构传统商务英语课程体系。将ChatGPT等工具引入国际贸易函电写作与商务谈判教学，提升学生实战效率与创新思维。</p>
+                </div>
+
+                <!-- 卡片 2 -->
+                <div class="card card-2">
+                    <div class="card-icon">🌐</div>
+                    <h3>校企深度合作</h3>
+                    <p>主导多个“西海岸国贸”校企对接项目，搭建真实跨境电商实训平台。打通校园理论与企业实操的壁垒，输送高素质复合型人才。</p>
+                </div>
+
+                <!-- 卡片 3 -->
+                <div class="card card-3">
+                    <div class="card-icon">💼</div>
+                    <h3>企业内训与咨询</h3>
+                    <p>为本地外贸企业提供定制化英语与电商技能培训。专注于品牌出海策略、跨文化沟通技巧及AI辅助内容生产的落地应用。</p>
+                </div>
+
+                <!-- 卡片 4 -->
+                <div class="card card-4">
+                    <div class="card-icon">🚀</div>
+                    <h3>行业影响力</h3>
+                    <p>持有电子商务师及BEC中级证书，不仅深耕教学一线，更活跃于行业论坛，致力于推动商务英语教育的数字化转型。</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // --- 打字机效果脚本 ---
+        document.addEventListener('DOMContentLoaded', function() {
+            const textSource = "将AI时代的电子商务现代打法融入到/国际贸易/商务谈判/品牌输出/创意生产";
+            const textElement = document.getElementById('typewriter-text');
+            
+            let index = 0;
+            const speed = 80; // 打字速度 (毫秒)
+
+            function typeWriter() {
+                if (index < textSource.length) {
+                    const char = textSource.charAt(index);
+                    
+                    // 核心逻辑：识别 "/" 符号，将其转换为换行和列表样式
+                    if (char === '/') {
+                        textElement.innerHTML += '<br/><span style="color:#00f2ff; margin-right:5px;">>></span> ';
+                    } else {
+                        textElement.innerHTML += char;
+                    }
+                    
+                    index++;
+                    setTimeout(typeWriter, speed);
+                }
+            }
+
+            // 启动打字机
+            setTimeout(typeWriter, 500);
+        });
+    </script>
+
+</body>
+</html>
